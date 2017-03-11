@@ -119,9 +119,9 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openRouteOptions(View view) {
-//        Intent intent = new Intent(this, Route_options.class);
-//        startActivity(intent);
+    public void openMapsActivity(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 
     // creating view

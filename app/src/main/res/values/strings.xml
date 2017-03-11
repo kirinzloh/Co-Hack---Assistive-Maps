@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Reachable</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_route_options">Route_options</string>
+    <string name="title_activity_maps">Maps</string>
     <string name="title_activity_dest_details">Dest_details</string>
     <string name="greeting">Welcome</string>
     <string name="home_title">Popular Destinations</string>

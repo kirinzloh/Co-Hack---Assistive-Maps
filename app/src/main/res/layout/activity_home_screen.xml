@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="25dp"
-            android:onClick="openRouteOptions"
+            android:onClick="openMapsActivity"
             app:backgroundTint="@color/white"
             app:elevation="25dp"
             app:srcCompat="@drawable/nav" />
