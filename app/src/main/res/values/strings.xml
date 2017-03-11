@@ -1,3 +1,45 @@
 <resources>
-    <string name="app_name">AssistiveMaps</string>
+    <string name="app_name">Reachable</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_route_options">Route_options</string>
+    <string name="title_activity_dest_details">Dest_details</string>
+    <string name="greeting">Welcome</string>
+    <string name="home_title">Popular Destinations</string>
+    <string name="info_button_description">Show photo information</string>
+    <string name="star_button_description">Fave this photo</string>
+    <string name="photo_description">Photo</string>
+    <string name="find_paths">Find Paths</string>
+    <string name="maps">Maps</string>
+    <string name="add_path">Add Path</string>
+    <string name="my_paths">My Paths</string>
+
+    <string name="SF_weblink">http://www.singaporeflyer.com</string>
+    <string name="SF_des">The Singapore Flyer is a giant Ferris wheel in Singapore. Described by its operators as an observation wheel, it opened in 2008, construction having taken about 2½ years. </string>
+    <string name="SF_opert">8:30AM to 10:30PM</string>
+    <string name="SF_trip">https://www.tripadvisor.com.sg/Attraction_Review-g294265-d678639-Reviews-Singapore_Flyer-Singapore.html</string>
+"
+    <string name="VC_weblink">http://www.vivocity.com.sg</string>
+    <string name="VC_des">"VivoCity is the largest shopping mall in Singapore. Located in the HarbourFront precinct of Bukit Merah, it was designed by the Japanese architect Toyo Ito. Its name is derived from the word vivacity."</string>
+    <string name="VC_opert">10AM to 10PM</string>
+    <string name="VC_trip">https://www.tripadvisor.com.sg/Attraction_Review-g294265-d634131-Reviews-Vivo_City-Singapore.html</string>
+
+
+    <string name="RWS_weblink">http://www.rwsentosa.com</string>
+    <string name="RWS_des">Resorts World Sentosa is Singapore\'s integrated resort, offering key attractions including theme parks, hotels, spa, casino, and meeting and incentive venues.</string>
+    <string name="RWS_opert">Varies depending on establishment</string>
+    <string name="RWS_trip">https://www.tripadvisor.com.sg/Tourism-g294264-Sentosa_Island-Vacations.html</string>
+
+
+    <string name="BTRT_weblink">http://www.btrts.org.sg</string>
+    <string name="BTRT_des">The Buddha Tooth Relic Temple and Museum is a Buddhist temple and museum complex located in the Chinatown district of Singapore.</string>
+    <string name="BTRT_opert">7AM to 7PM</string>
+    <string name="BTRT_trip">https://www.tripadvisor.com.my/Attraction_Review-g294265-d1438273-Reviews-Buddha_Tooth_Relic_Temple_and_Museum-Singapore.html</string>
+
+
+    <string name="Z_weblink">http://www.zoo.com.sg</string>
+    <string name="Z_des">The Singapore Zoo, formerly known as the Singapore Zoological Gardens and commonly known locally as the Mandai Zoo, occupies 28 hectares on the margins of Upper Seletar Reservoir within Singapore\'s heavily forested central catchment area.</string>
+    <string name="Z_opert">8:30AM to 6PM</string>
+    <string name="Z_trip">https://www.tripadvisor.com.my/Attraction_Review-g294265-d324542-Reviews-Singapore_Zoo-Singapore.html</string>
+
+
 </resources>

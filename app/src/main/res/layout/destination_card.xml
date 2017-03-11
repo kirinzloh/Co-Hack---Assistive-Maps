@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:hapticFeedbackEnabled="true"
+        app:cardCornerRadius="5dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/dest_photo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:transitionName="img_transition" />
+
+            <TextView
+                android:id="@+id/dest_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

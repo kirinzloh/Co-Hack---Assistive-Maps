@@ -5,11 +5,12 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.example.weiquan.assistivemaps"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -25,6 +26,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.google.android.gms:play-services:9.8.0'
+    compile 'com.google.firebase:firebase-database:9.4.0'
+    compile 'com.google.firebase:firebase-auth:9.8.0'
+    compile 'cn.pedant.sweetalert:library:1.3'
     testCompile 'junit:junit:4.12'
 }

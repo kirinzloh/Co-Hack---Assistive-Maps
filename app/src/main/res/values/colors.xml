@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#212F3C</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#808080</color>
+    <color name="photo_tint">#7f101010</color>
+    <color name="white">#FFFFFF</color>
+    <color name="actionbar_background">#D5D5D5</color>
+    <color name="actionbar_text">#A3A3A3</color>
+    <color name="grey">#fecdcdcd</color>
+    <color name="darker">#323232</color>
+    <color name="general_background">#1b1b1b</color>
 </resources>

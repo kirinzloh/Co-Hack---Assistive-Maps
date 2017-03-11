@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.weiquan.assistivemaps.Dest_details"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/container"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/general_background"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/dest_photo"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/a"
+                android:transitionName="img_transition" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/detail_titlename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/description"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-light"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingEnd="40dp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/opert"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@android:color/holo_orange_dark"
+
+
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:id="@+id/button_link"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="left"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="45dp"
+                android:background="@null"
+                android:src="@drawable/chrome" />
+
+            <ImageButton
+                android:id="@+id/button_link2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="left"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="45dp"
+                android:background="@null"
+                android:src="@drawable/trip" />
+
+            <ImageButton
+                android:id="@+id/button_link3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="45dp"
+                android:background="@null"
+                android:src="@drawable/time"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>
