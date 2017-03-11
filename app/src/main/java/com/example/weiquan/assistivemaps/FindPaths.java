@@ -13,12 +13,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,6 +32,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -39,13 +45,14 @@ public class FindPaths extends FragmentActivity implements OnMapReadyCallback, G
     private GoogleApiClient mGoogleApiClient;
     private Location curLocation = new Location("");
     private boolean reached = false;
-
-
+    private Place currentPlace = null;
+    private final int STREET_LEVEL = 15;
     private static PolylineOptions thePath = new PolylineOptions();
     private double[][] hope = {{1.340098,103.962367},{1.340106,103.962305}, {1.340115,103.962226}, {1.340125, 103.962164}, {1.340133, 103.962086}, {1.340170, 103.962036}, {1.340242, 103.962011}, {1.340312, 103.962000}, {1.340332, 103.962081}, {1.340348, 103.962148}, {1.340362, 103.962208}};
     private ArrayList<ArrayList<Double>> rawPath;
     private ArrayList<Location> pathArray = new ArrayList<Location>();
     private ArrayList<Location> pathArrayMe = new ArrayList<Location>();
+    private String destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +65,40 @@ public class FindPaths extends FragmentActivity implements OnMapReadyCallback, G
             pathArray.add(temp);
             pathArrayMe.add(temp);
         }
+        destination = getIntent().getStringExtra("Destination");
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(map);
         mapFragment.getMapAsync(this);
+
+        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
+        autocompleteFragment.setBoundsBias(new LatLngBounds(
+                new LatLng(1.194257, 103.551421),
+                new LatLng(1.547341, 104.073343)));
+
+        if (destination != null){
+            autocompleteFragment.setText(destination);
+        }
+
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                Toast.makeText(FindPaths.this, "Place: " + place.getName(), Toast.LENGTH_LONG).show();
+                currentPlace = place;
+                MarkerOptions marker = new MarkerOptions().position(place.getLatLng());
+                mMap.addMarker(marker);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), STREET_LEVEL));
+            }
+
+            @Override
+            public void onError(Status status) {
+                Toast.makeText(getBaseContext(), "Fail to find location", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 
     public void pathFollower() {

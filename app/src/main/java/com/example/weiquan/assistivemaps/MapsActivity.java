@@ -4,8 +4,10 @@ package com.example.weiquan.assistivemaps;
  * Created by weiqu on 3/11/2017.
  */
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -24,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     Place currentPlace = null;
+    String markerLocation;
     int STREET_LEVEL = 15;
     String destination;
 
@@ -49,12 +52,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (destination != null){
             autocompleteFragment.setText(destination);
         }
+
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
                 Toast.makeText(MapsActivity.this, "Place: " + place.getName(), Toast.LENGTH_LONG).show();
                 currentPlace = place;
-                mMap.addMarker(new MarkerOptions().position(place.getLatLng()));
+                destination = place.getName().toString();
+                markerLocation = place.getName().toString();
+                MarkerOptions marker = new MarkerOptions().position(place.getLatLng());
+                mMap.addMarker(marker);
+                marker.title(markerLocation);
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), STREET_LEVEL));
             }
 
@@ -113,5 +121,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(markerOptions);
             }
         });
+    }
+
+    public void goToFindPaths(View v){
+        Intent i = new Intent(MapsActivity.this,FindPaths.class);
+        i.putExtra("Destination",destination);
+        startActivity(i);
     }
 }
