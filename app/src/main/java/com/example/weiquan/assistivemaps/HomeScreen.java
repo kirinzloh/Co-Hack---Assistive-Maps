@@ -24,7 +24,6 @@ import java.util.List;
 
 public class HomeScreen extends AppCompatActivity implements DetailsInterface {
     private DrawerLayout mDrawerLayout;
-    private Typeface face;
     public static List<Destination> dest_list;
     public static ArrayList<Destination> data_list;
 
@@ -34,11 +33,6 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // set text font
-//        face = Typeface.createFromAsset(getAssets(), "Hero.otf");
-//        TextView tv = (TextView) findViewById(R.id.greeting);
-//        tv.setTypeface(face);
 
         Transition fade = new Fade();
         fade.excludeTarget(android.R.id.statusBarBackground, true);
@@ -69,10 +63,10 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
 //                                goToItinerary(menuItem.getActionView());
                                 break;
                             case R.id.add_path:
-//                                goToItinerary(menuItem.getActionView());
+                                goToRecordPath(menuItem.getActionView());
                                 break;
                             case R.id.maps:
-//                                goToMaps(menuItem.getActionView());
+                                openMapsActivity(menuItem.getActionView());
                                 break;
                             default:
                                 return true;
@@ -110,10 +104,6 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
-        }
-        else if (id == R.id.action_search) {
-//            Intent intent = new Intent(this, MapsActivity.class);
-//            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -159,11 +149,11 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
         }
     }
 
-//    public void goToItinerary(View v){
-//        Intent i = new Intent(HomeScreen.this,ItineraryMain.class);
-//        startActivity(i);
-//    }
-//
+    public void goToRecordPath(View v){
+        Intent i = new Intent(HomeScreen.this,RecordPath.class);
+        startActivity(i);
+    }
+
 //    public void goToMaps(View v){
 //        Intent i = new Intent(HomeScreen.this,MapsActivity.class);
 //        startActivity(i);

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Reachable</string>
+    <string name="app_name">Reach</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Maps</string>
     <string name="title_activity_dest_details">Dest_details</string>
+    <string name="title_activity_record_path">Record Path</string>
     <string name="greeting">Welcome</string>
     <string name="home_title">Popular Destinations</string>
     <string name="info_button_description">Show photo information</string>
@@ -10,14 +11,14 @@
     <string name="photo_description">Photo</string>
     <string name="find_paths">Find Paths</string>
     <string name="maps">Maps</string>
-    <string name="add_path">Add Path</string>
+    <string name="add_path">Record Path</string>
     <string name="my_paths">My Paths</string>
 
     <string name="SF_weblink">http://www.singaporeflyer.com</string>
     <string name="SF_des">The Singapore Flyer is a giant Ferris wheel in Singapore. Described by its operators as an observation wheel, it opened in 2008, construction having taken about 2½ years. </string>
     <string name="SF_opert">8:30AM to 10:30PM</string>
     <string name="SF_trip">https://www.tripadvisor.com.sg/Attraction_Review-g294265-d678639-Reviews-Singapore_Flyer-Singapore.html</string>
-"
+    "
     <string name="VC_weblink">http://www.vivocity.com.sg</string>
     <string name="VC_des">"VivoCity is the largest shopping mall in Singapore. Located in the HarbourFront precinct of Bukit Merah, it was designed by the Japanese architect Toyo Ito. Its name is derived from the word vivacity."</string>
     <string name="VC_opert">10AM to 10PM</string>

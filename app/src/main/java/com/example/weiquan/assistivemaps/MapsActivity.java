@@ -22,8 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-
-    //    private SearchView searchView;
     private GoogleMap mMap;
     Place currentPlace = null;
     int STREET_LEVEL = 15;
@@ -79,12 +77,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng singapore = new LatLng(1.370606, 103.804709);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(singapore)      // Sets the center of the map to location user
-                .zoom(10)
+                .zoom(10.4f)
                 .bearing(0)
                 .tilt(0)
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-    }
 
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+
+                // Creating a marker
+                MarkerOptions markerOptions = new MarkerOptions();
+
+                // Setting the position for the marker
+                markerOptions.position(latLng);
+
+                // Setting the title for the marker.
+                // This will be displayed on tapping the marker
+                markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+
+                // Clears the previously touched position
+                mMap.clear();
+
+                // Animating to the touched position
+                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+                // Placing a marker on the touched position
+                mMap.addMarker(markerOptions);
+            }
+        });
+    }
 }
