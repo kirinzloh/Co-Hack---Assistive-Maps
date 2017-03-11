@@ -9,11 +9,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="com.google.android.providers.gsf.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission
         android:name="com.example.weiquan.assistivemaps.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
     <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,6 +37,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -48,8 +49,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RecordPath"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_record_path"></activity>
+            android:label="@string/title_activity_record_path"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FindPaths"
+            android:label="@string/title_activity_find_paths"></activity>
     </application>
 
 </manifest>

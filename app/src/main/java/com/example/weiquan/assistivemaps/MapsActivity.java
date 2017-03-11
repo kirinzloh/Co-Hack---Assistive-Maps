@@ -25,6 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     Place currentPlace = null;
     int STREET_LEVEL = 15;
+    String destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.194257, 103.551421),
                 new LatLng(1.547341, 104.073343)));
 
+        destination = getIntent().getStringExtra("Destination");
+
+        if (destination != null){
+            autocompleteFragment.setText(destination);
+        }
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
@@ -73,7 +79,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        //Set the initial spot to edmonton for now
         LatLng singapore = new LatLng(1.370606, 103.804709);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(singapore)      // Sets the center of the map to location user

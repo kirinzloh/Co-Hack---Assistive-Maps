@@ -41,6 +41,7 @@
     <string name="Z_des">The Singapore Zoo, formerly known as the Singapore Zoological Gardens and commonly known locally as the Mandai Zoo, occupies 28 hectares on the margins of Upper Seletar Reservoir within Singapore\'s heavily forested central catchment area.</string>
     <string name="Z_opert">8:30AM to 6PM</string>
     <string name="Z_trip">https://www.tripadvisor.com.my/Attraction_Review-g294265-d324542-Reviews-Singapore_Zoo-Singapore.html</string>
+    <string name="title_activity_find_paths">Map</string>
 
 
 </resources>

@@ -25,7 +25,7 @@ public class Dest_details extends AppCompatActivity {
     String descript ;
     String opert ;
     String trip ;
-
+    String destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class Dest_details extends AppCompatActivity {
         Intent i = getIntent();
         String name = i.getStringExtra("name");
         int img = i.getIntExtra("img", 0 );
+        destination = name;
 
         for(HomeScreen.Destination d : HomeScreen.data_list){
             if(d.name.equals(name)){
@@ -92,7 +93,12 @@ public class Dest_details extends AppCompatActivity {
             }
 
         });
+    }
 
+    public void openMapsActivity(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("Destination", destination);
+        startActivity(intent);
     }
 
 }
