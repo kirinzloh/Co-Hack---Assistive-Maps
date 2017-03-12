@@ -9,10 +9,12 @@
     <string name="info_button_description">Show photo information</string>
     <string name="star_button_description">Fave this photo</string>
     <string name="photo_description">Photo</string>
-    <string name="find_paths">Find Paths</string>
+    <string name="find_paths">Search Paths</string>
     <string name="maps">Maps</string>
     <string name="add_path">Record Path</string>
     <string name="my_paths">My Paths</string>
+    <string name="search_paths_title">Routes</string>
+    <string name="search_paths_info">There are currently no paths available</string>
 
     <string name="SF_weblink">http://www.singaporeflyer.com</string>
     <string name="SF_des">The Singapore Flyer is a giant Ferris wheel in Singapore. Described by its operators as an observation wheel, it opened in 2008, construction having taken about 2½ years. </string>
@@ -42,6 +44,7 @@
     <string name="Z_opert">8:30AM to 6PM</string>
     <string name="Z_trip">https://www.tripadvisor.com.my/Attraction_Review-g294265-d324542-Reviews-Singapore_Zoo-Singapore.html</string>
     <string name="title_activity_find_paths">Map</string>
+    <string name="title_activity_search_paths">SearchPaths</string>
 
 
 </resources>

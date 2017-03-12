@@ -37,7 +37,7 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
     private static ArrayList<Location> listLocsToDraw = new ArrayList<Location>();
     private static PolylineOptions options = new PolylineOptions();
     private static final int REQUEST_READ_PERMISSION = 123;
-
+    private DataManager dm = new DataManager();
     private static double[] coordinates = {0, 0};
     private GoogleApiClient mGoogleApiClient;
     private static boolean isRecording = false;
@@ -182,8 +182,8 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
                 listLocsToDraw.remove(0);
                 started = true;
                 LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-                coordinates[0] = Math.round(location.getLongitude() * 100000.0) / 100000.0;;
-                coordinates[1] = Math.round(location.getLatitude() * 100000.0) / 100000.0;;
+                coordinates[0] = Math.round(location.getLongitude() * 100000.0) / 100000.0;
+                coordinates[1] = Math.round(location.getLatitude() * 100000.0) / 100000.0;
                 CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,20);
                 listLocsToDraw.add(location);
                 mMap.animateCamera(update);

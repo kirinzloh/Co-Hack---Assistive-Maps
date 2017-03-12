@@ -57,7 +57,7 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
 
                         switch (menuItem.getItemId()) {
                             case R.id.find_paths:
-//                                goToFindPaths(menuItem.getActionView());
+                                goToSearchPaths(menuItem.getActionView());
                                 break;
                             case R.id.my_paths:
 //                                goToItinerary(menuItem.getActionView());
@@ -154,10 +154,10 @@ public class HomeScreen extends AppCompatActivity implements DetailsInterface {
         startActivity(i);
     }
 
-//    public void goToFindPaths(View v){
-//        Intent i = new Intent(HomeScreen.this,FindPaths.class);
-//        startActivity(i);
-//    }
+    public void goToSearchPaths(View v){
+        Intent i = new Intent(HomeScreen.this,SearchPaths.class);
+        startActivity(i);
+    }
 
 //===============================================================================
 
