@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/general_background"
     android:fitsSystemWindows="true"
-    tools:context="com.example.weiquan.assistivemaps.SearchPaths">
+    tools:context="com.example.weiquan.assistivemaps.MyPaths">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         app:elevation="25dp"
         app:srcCompat="@drawable/nav" />
 
-    <include layout="@layout/content_search_paths" />
+    <include layout="@layout/content_my_paths" />
 
 </android.support.design.widget.CoordinatorLayout>
 

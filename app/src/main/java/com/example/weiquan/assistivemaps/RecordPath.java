@@ -28,6 +28,8 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import static com.example.weiquan.assistivemaps.R.id.map;
 
@@ -41,6 +43,8 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
     private static double[] coordinates = {0, 0};
     private GoogleApiClient mGoogleApiClient;
     private static boolean isRecording = false;
+    private static double[] prev = new double[2];
+    public static ArrayList<ArrayList<Location>> recordedPath = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,7 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
             public void onClick(View v) {
                 if(!isRecording){
                     Toast.makeText(getApplicationContext(), "Start Recording",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                     mGoogleApiClient.connect();
                     isRecording = true;
                     listLocsToDraw = new ArrayList<Location>();
@@ -66,8 +70,9 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
         stopRecording.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(isRecording){
+                    recordedPath.add(listLocsToDraw);
                     Toast.makeText(getApplicationContext(), "Stop Recording",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                     mGoogleApiClient.disconnect();
                     isRecording = false;
                     started = false;}
@@ -155,7 +160,7 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
     public void onConnected(Bundle bundle) {
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(10000);
+        mLocationRequest.setInterval(3000);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
@@ -182,24 +187,38 @@ public class RecordPath extends FragmentActivity implements OnMapReadyCallback, 
                 listLocsToDraw.remove(0);
                 started = true;
                 LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-                coordinates[0] = Math.round(location.getLongitude() * 100000.0) / 100000.0;
-                coordinates[1] = Math.round(location.getLatitude() * 100000.0) / 100000.0;
+                coordinates[0] = Math.round(location.getLongitude() * 1000000.0) / 1000000.0;
+                coordinates[1] = Math.round(location.getLatitude() * 1000000.0) / 1000000.0;
+                prev[0] = 0.0;
+                prev[1] = 0.0;
+                double[] cur = {coordinates[0],coordinates[1]};
+                dm.setCoordinatesnoregion(prev, cur);
                 CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,20);
                 listLocsToDraw.add(location);
                 mMap.animateCamera(update);
+                prev[0] = Math.round(location.getLongitude() * 1000000.0) / 1000000.0;
+                prev[1] = Math.round(location.getLatitude() * 1000000.0) / 1000000.0;
             }
             else if(!started && listLocsToDraw.size() == 0){
                 Toast.makeText(getApplicationContext(),""+location.getLatitude()+"\n"+location.getLongitude(),Toast.LENGTH_SHORT).show();
                 listLocsToDraw.add(location);
             }
             else if (listLocsToDraw.size() >= 1 && started){
+                Toast.makeText(getApplicationContext(), ""+listLocsToDraw.get(listLocsToDraw.size()-1).distanceTo(location), Toast.LENGTH_SHORT).show();
                 LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-                if(listLocsToDraw.get(listLocsToDraw.size()-1).distanceTo(location) > 1 && listLocsToDraw.get(listLocsToDraw.size()-1).distanceTo(location) < 2){
-                    coordinates[0] = Math.round(location.getLongitude() * 100000.0) / 100000.0;
-                    coordinates[1] = Math.round(location.getLatitude() * 100000.0) / 100000.0;
+                if(listLocsToDraw.get(listLocsToDraw.size()-1).distanceTo(location) > 2 && listLocsToDraw.get(listLocsToDraw.size()-1).distanceTo(location) < 5){
+                    coordinates[0] = Math.round(location.getLongitude() * 1000000.0) / 1000000.0;
+                    coordinates[1] = Math.round(location.getLatitude() * 1000000.0) / 1000000.0;
+                    double[] cur = {coordinates[0],coordinates[1]};
+
+                    dm.setCoordinatesnoregion(prev, cur);
+
                     CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,20);
                     listLocsToDraw.add(location);
                     mMap.animateCamera(update);
+                    prev[0] = Math.round(location.getLongitude() * 1000000.0) / 1000000.0;
+                    prev[1] = Math.round(location.getLatitude() * 1000000.0) / 1000000.0;
+
                 }
             }
         }

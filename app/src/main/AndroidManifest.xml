@@ -58,7 +58,14 @@
         <activity
             android:name=".SearchPaths"
             android:label="@string/title_activity_search_paths"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyPaths"
+            android:label="@string/title_activity_my_paths"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyPathMapsActivity"
+            android:label="@string/title_activity_my_path_maps"></activity>
     </application>
 
 </manifest>

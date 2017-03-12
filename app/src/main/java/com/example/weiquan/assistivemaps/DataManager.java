@@ -12,30 +12,8 @@ public class DataManager {
     static ArrayList<ArrayList<String>> listOfNodes = new ArrayList<>();
     static HashMap<Double, ArrayList<ArrayList<ArrayList<Double>>>> regionList = new HashMap<Double, ArrayList<ArrayList<ArrayList<Double>>>>();
 
-    public static void main(String[] args) {
-        createHashMap();
-//        setCoordinates(new double[]{0, 0}, new double[]{26.3, 47.5});
-//        setCoordinates(new double[]{26.3, 47.5}, new double[]{56.3, 87.5});
-//        setCoordinates(new double[]{56.3, 87.5}, new double[]{22.5, 27.5});
-//        setCoordinates(new double[]{56.3, 87.5}, new double[]{24.0,25.0});
-        setCoordinatesnoregion(new double[]{0, 0}, new double[]{103.962169, 1.340133});
-        setCoordinatesnoregion(new double[]{103.962169, 1.340133}, new double[]{103.962214, 1.340169});
-        setCoordinatesnoregion(new double[]{103.962214, 1.340169}, new double[]{103.962220, 1.340140});
-        setCoordinatesnoregion(new double[]{103.962220, 1.340140}, new double[]{103.962224, 1.340150});
-        setCoordinatesnoregion(new double[]{103.962224, 1.340150}, new double[]{103.962230, 1.340155});
 
-
-        System.out.println(regionList);
-//        System.out.println(getCoordinates(101));
-//        System.out.println(getNeighbours(101));
-//        double [] test=new double [2];
-//        test[0]=56.3;
-//        test[1]=87.5;
-//        System.out.println(getNodeID(test));
-
-    }
-
-    public static void createHashMap() {
+    public DataManager() {
         ArrayList<ArrayList<ArrayList<Double>>> finalList1 = new ArrayList<>();
         ArrayList<ArrayList<ArrayList<Double>>> finalList2 = new ArrayList<>();
         ArrayList<ArrayList<ArrayList<Double>>> finalList3 = new ArrayList<>();
